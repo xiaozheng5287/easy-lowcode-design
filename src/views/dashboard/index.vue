@@ -1,7 +1,9 @@
 <template>
   <!-- <div class="common-layout"> -->
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px">
+        <AsideComponent />
+      </el-aside>
       <el-main>Main</el-main>
       <el-aside width="200px">Aside</el-aside>
     </el-container>
@@ -9,7 +11,7 @@
 </template>
 
 <script setup>
-
+import AsideComponent from './components/AsideComponent.vue'
 </script>
 
 <style lang="scss" scoped>
