@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "element-plus": "^2.9.1",
+    "pinia": "^2.3.0",
     "vue": "^3.5.13",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
