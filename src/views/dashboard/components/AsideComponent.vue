@@ -1,29 +1,35 @@
 <template>
-  <div v-for="field in fieldsList" :key="field.title" class="item">
-  <!-- <template v-if="field.list.find((f) => includeFieldsType.includes(f.type))"> -->
+  <div v-for="field in fieldsList" :key="field.title" class="field-item">
+    <!-- <template v-if="field.list.find((f) => includeFieldsType.includes(f.type))"> -->
     <div class="field-title">{{ field.title }}</div>
     <Draggable
-      tag="ul"
+      class="field-content"
       :list="field.list"
-      :group="{ name: 'form', clone: (original) => ({ ...original }), putTo: false }"
+      :group="{
+        name: 'form',
+        clone: (original) => ({ ...original }),
+        putTo: false,
+      }"
       :sort="false"
       drag-class="ghost"
     >
       <template #item="{ element, index }">
-        <li
-          class="field-label"
-          v-if="includeFieldsType.includes(element.type)"
-          :key="'c_' + index"
-        >
-          <a @click="handleFieldClick(element)">
-            <i class="icon iconfont" :class="element.icon"></i>
-            <span>{{ element.title || element.label }}</span>
-          </a>
-        </li>
+          <div
+            class="field-label"
+            v-if="includeFieldsType.includes(element.type)"
+            :key="'c_' + index"
+          >
+            <a @click="handleFieldClick(element)">
+              <el-icon>
+                <component :is="element.icon" />
+              </el-icon>
+              <span>{{ element.title || element.label }}</span>
+            </a>
+          </div>
       </template>
     </Draggable>
-  <!-- </template> -->
-</div>
+    <!-- </template> -->
+  </div>
 </template>
 
 <script setup>
@@ -56,4 +62,40 @@ const includeFieldsType = computed(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.field {
+  &-item {
+    margin: 10px 0;
+    overflow-y: auto;
+  }
+  &-content {
+    // width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    margin-top: 10px;
+  }
+  &-label {
+    width: 80%;
+    padding: 3px 10px;
+    margin-top: 5px;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    background-color: rgb(202, 235, 255);
+    &:hover {
+      background-color: #f5f7fa;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      color: #333;
+      .el-icon {
+        margin-right: 8px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+</style>
