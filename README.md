@@ -12,3 +12,10 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 ### vue.draggable.next 中文文档
 ##### https://www.itxst.com/vue-draggable-next/tutorial.html
 
+## 思路
+### 左侧为组件区  有所有可拖拽的组件列表
+### 中间为布局容器  需要监控到数据的变化
+##### 中间容器需要贾昂数据的变化渲染出来  无论怎么拖动  始终都是中间部分渲染数据 
+###### 1.中间的组件也可以拖动
+###### 2.中间组件的数据组成，要包含右侧的配置  transformToAvueOptions
+

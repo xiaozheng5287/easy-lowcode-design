@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -76,4 +76,28 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+/* 滚动条整体部分 */
+::-webkit-scrollbar {
+  width: 5px; /* 垂直滚动条的宽度 */
+  height: 5px; /* 水平滚动条的高度 */
+  background-color: #f1f1f1;
+}
+ 
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background: #f1f1f1; /* 轨道的背景颜色 */
+}
+ 
+/* 滚动条的滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: #d0f7cd; /* 滑块的背景颜色 */
+}
+ 
+/* 滑块hover效果 */
+::-webkit-scrollbar-thumb:hover {
+  background: #d0f7cd; /* 滑块hover时的背景颜色 */
 }

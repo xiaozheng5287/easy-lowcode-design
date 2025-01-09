@@ -1,7 +1,17 @@
 <template>
+  <!--左侧组件选择-->
   <div v-for="field in fieldsList" :key="field.title" class="field-item">
     <!-- <template v-if="field.list.find((f) => includeFieldsType.includes(f.type))"> -->
     <div class="field-title">{{ field.title }}</div>
+    <!--/*
+      draggable 对CSS样式没有什么要求万物皆可拖拽
+      :list="state.list"         //需要绑定的数组
+      ghost-class="ghost"        //被替换元素的样式
+      chosen-class="chosenClass" //选中元素的样式
+      animation="300"            //动画效果
+      @start="onStart"           //拖拽开始的事件
+      @end="onEnd"               //拖拽结束的事件
+      */-->
     <Draggable
       class="field-content"
       :list="field.list"
@@ -12,20 +22,22 @@
       }"
       :sort="false"
       drag-class="ghost"
+      @start="onStart" 
+      @end="onEnd"
     >
       <template #item="{ element, index }">
-          <div
-            class="field-label"
-            v-if="includeFieldsType.includes(element.type)"
-            :key="'c_' + index"
-          >
-            <a @click="handleFieldClick(element)">
-              <el-icon>
-                <component :is="element.icon" />
-              </el-icon>
-              <span>{{ element.title || element.label }}</span>
-            </a>
-          </div>
+        <div
+          class="field-label"
+          v-if="includeFieldsType.includes(element.type)"
+          :key="'c_' + index"
+        >
+          <a @click="handleFieldClick(element)">
+            <el-icon>
+              <component :is="element.icon" />
+            </el-icon>
+            <span>{{ element.title || element.label }}</span>
+          </a>
+        </div>
       </template>
     </Draggable>
     <!-- </template> -->
@@ -65,7 +77,7 @@ const includeFieldsType = computed(() => {
 <style lang="scss" scoped>
 .field {
   &-item {
-    margin: 10px 0;
+    margin: 8px 0;
     overflow-y: auto;
   }
   &-content {
@@ -73,10 +85,10 @@ const includeFieldsType = computed(() => {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 5px;
-    margin-top: 10px;
+    margin-top: 6px;
   }
   &-label {
-    width: 80%;
+    width: 83%;
     padding: 3px 10px;
     margin-top: 5px;
     line-height: 30px;

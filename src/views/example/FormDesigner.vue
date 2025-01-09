@@ -27,7 +27,7 @@ JSON 配置：支持从 JSON 配置生成表单，同时可导出表单 JSON。-
 <script>
 import { ref } from "vue";
 import LeftPanel from "./LeftPanel.vue";
-import MiddleCanvas from "./MiddleCanvas.vue";
+import MiddleCanvas from "../dashboard/components/MiddleCanvas.vue";
 import RightPanel from "./RightPanel.vue";
 
 export default {
