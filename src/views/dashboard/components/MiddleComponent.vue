@@ -34,6 +34,14 @@
 
 <script setup>
 import Draggable from "vuedraggable";
+import { ref, defineProps } from "vue";
+
+defineProps({
+  contentList: {
+    type: Array,
+    default: () => [],
+  },
+})
 
 const onStart = (e) => {
   console.log("start", e);

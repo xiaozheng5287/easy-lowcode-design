@@ -5,7 +5,7 @@
       <AsideComponent />
     </el-aside>
     <el-main class="my-main">
-      <MiddleComponent />
+      <MiddleComponent :contentList="contentList" />
     </el-main>
     <el-aside width="200px">Aside</el-aside>
   </el-container>
@@ -15,6 +15,8 @@
 <script setup>
 import AsideComponent from "./components/AsideComponent.vue";
 import MiddleComponent from "./components/MiddleComponent.vue";
+import { ref } from "vue";
+const contentList = ref([]);
 </script>
 
 <style lang="scss" scoped>

@@ -22,7 +22,7 @@
       }"
       :sort="false"
       drag-class="ghost"
-      @start="onStart" 
+      @start="onStart"
       @end="onEnd"
     >
       <template #item="{ element, index }">
@@ -46,7 +46,7 @@
 
 <script setup>
 import Draggable from "vuedraggable";
-import fieldsList from "../fieldsConfig";
+import fieldsList from "../config/fieldsConfig";
 import { computed, ref, watch } from "vue";
 const handleFieldClick = (item) => {
   console.log(item);
@@ -72,6 +72,13 @@ const includeFieldsType = computed(() => {
 
   return arr;
 });
+
+const onStart = (e) => {
+  console.log("start", e);
+};
+const onEnd = (e) => {
+  console.log("end", e);
+};
 </script>
 
 <style lang="scss" scoped>
