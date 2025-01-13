@@ -47,9 +47,20 @@
 <script setup>
 import Draggable from "vuedraggable";
 import fieldsList from "../config/fieldsConfig";
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, toRefs } from "vue";
+const props = defineProps({
+  contentList: {
+    type: Array,
+    default: () => ([]) 
+  }
+});
+// const { contentList } = toRefs(props);
+
 const handleFieldClick = (item) => {
-  console.log(item);
+  console.log('item-------',item);
+  console.log('pppppppp',props.contentList);
+
+  props.contentList.push(item);
 };
 watch(
   () => fieldsList,
@@ -57,6 +68,7 @@ watch(
     console.log(newVal);
   },
   { deep: true, immediate: true }
+
 );
 
 const includeFieldsType = computed(() => {

@@ -18,4 +18,7 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 ##### 中间容器需要贾昂数据的变化渲染出来  无论怎么拖动  始终都是中间部分渲染数据 
 ###### 1.中间的组件也可以拖动
 ###### 2.中间组件的数据组成，要包含右侧的配置  transformToAvueOptions
+###### 3.左侧数据的点击(/拖动)影响数据的长度
+###### 4.右侧数据的点击影响数据每一项的配置
+###### 5.每条数据都需要唯一标识来锁定
 

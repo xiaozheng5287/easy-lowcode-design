@@ -1,6 +1,22 @@
 let obj = {
   column: [
     {
+      type: "input",
+      label: "单行文本",
+      span: 24,
+      display: true,
+      prop: "a173680206014225966",
+      readonly: true,
+      required: true,
+      rules: [
+        {
+          required: true,
+          message: "单行文本必须填写",
+        },
+      ],
+      disabled: true,
+    },
+    {
       type: "radio",
       label: "单选框组",
       dicData: [
@@ -24,14 +40,7 @@ let obj = {
         label: "label",
         value: "value",
       },
-      prop: "a173672161063515491",
-    },
-    {
-      type: "input",
-      label: "单行文本",
-      span: 24,
-      display: true,
-      prop: "a173672140585573107",
+      prop: "a173680206129949721",
     },
     {
       type: "date",
@@ -40,7 +49,7 @@ let obj = {
       display: true,
       format: "yyyy-MM-dd",
       valueFormat: "yyyy-MM-dd",
-      prop: "a173672173345057604",
+      prop: "a173680206439444129",
     },
   ],
   labelPosition: "left",

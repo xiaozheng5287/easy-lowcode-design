@@ -1,9 +1,10 @@
 <template>
   <!--中间布局容器-->
   <div>
-    <Draggable
+    <div>{{props.contentList}}</div>
+    <!-- <Draggable
       class="middle-content"
-      :list="contentList"
+      :list="props.contentList"
       :group="{
         name: 'form',
         clone: (original) => ({ ...original }),
@@ -28,20 +29,21 @@
           </a>
         </div>
       </template>
-    </Draggable>
+    </Draggable> -->
   </div>
 </template>
 
 <script setup>
 import Draggable from "vuedraggable";
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 
-defineProps({
+const props = defineProps({
   contentList: {
     type: Array,
     default: () => [],
   },
 })
+console.log('contentList',props.contentList.length);
 
 const onStart = (e) => {
   console.log("start", e);
