@@ -2,7 +2,7 @@
   <!--左侧组件选择-->
   <div v-for="field in fieldsList" :key="field.title" class="field-item">
     <!-- <template v-if="field.list.find((f) => includeFieldsType.includes(f.type))"> -->
-    <div class="field-title">{{ field.title }}</div>
+    <!-- <div class="field-title">{{ field.list }}</div> -->
     <!--/*
       draggable 对CSS样式没有什么要求万物皆可拖拽
       :list="state.list"         //需要绑定的数组
@@ -31,7 +31,7 @@
           v-if="includeFieldsType.includes(element.type)"
           :key="'c_' + index"
         >
-          <a @click="handleFieldClick(element)">
+          <a @click="handleFieldClick($event, element)">
             <el-icon>
               <component :is="element.icon" />
             </el-icon>
@@ -56,11 +56,18 @@ const props = defineProps({
 });
 // const { contentList } = toRefs(props);
 
-const handleFieldClick = (item) => {
+const handleFieldClick = (evt, item) => {
+  console.log('evt-------',evt);
   console.log('item-------',item);
   console.log('pppppppp',props.contentList);
 
-  props.contentList.push(item);
+  props.contentList.push({
+    ...item,
+    prop: item.type + '--xyz--' + Date.now(),
+    readonly: false,
+    required: false,
+    disabled: false,
+  })
 };
 watch(
   () => fieldsList,

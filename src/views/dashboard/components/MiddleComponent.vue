@@ -1,8 +1,8 @@
 <template>
   <!--中间布局容器-->
-  <div>
+  <div>    
     <div>{{props.contentList}}</div>
-    <!-- <Draggable
+    <Draggable
       class="middle-content"
       :list="props.contentList"
       :group="{
@@ -17,19 +17,16 @@
     >
       <template #item="{ element, index }">
         <div
-          class="middle-label"
-          v-if="includeFieldsType.includes(element.type)"
+          class="middle-item"
           :key="'c_' + index"
         >
           <a @click="handleFieldClick(element)">
-            <el-icon>
-              <component :is="element.icon" />
-            </el-icon>
-            <span>{{ element.title || element.label }}</span>
+            <div>{{ element.title || element.label }}</div>
+            <component :is="'el-'+element.type"/>
           </a>
         </div>
       </template>
-    </Draggable> -->
+    </Draggable>
   </div>
 </template>
 
@@ -59,4 +56,24 @@ const handleFieldClick = (element) => {
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.middle-item {
+  padding: 10px 5px 5px 2px;
+  // border: 1px solid #ccc;
+  margin-right: 5px;
+  // margin: 10px;
+  border-radius: 5px;
+  cursor: move;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // color: #333;
+    // text-decoration: none;
+    div {
+      flex: 1 0 auto;
+      margin-right: 5px;
+    }
+  }
+}
+</style>

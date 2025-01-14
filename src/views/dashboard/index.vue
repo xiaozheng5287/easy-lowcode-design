@@ -7,8 +7,8 @@
     <el-main class="my-main">
       <MiddleComponent :contentList="contentList" />
     </el-main>
-    <el-aside width="350px" class="my-right">
-      <RightConfigComponent :contentForm="contentForm" />
+    <el-aside width="320px" class="my-right">
+      <RightConfigComponent :contentList="contentList" />
     </el-aside>
   </el-container>
   <!-- </div> -->
@@ -36,6 +36,7 @@ const contentForm = ref({});
   &-main {
     height: 100%;
     overflow: auto;
+    padding: 10px 0;
     // border: 1px solid #ccc;
   }
   &-right {
